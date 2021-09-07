@@ -1,12 +1,24 @@
-const express=require('express');
-const mongoose=require('./db/mongoose1');
-const userRouter=require('./routers/user');
-const taskRouter=require('./routers/task');
-const auth=require('./middleware/auth')
-const app=express();
-const multer=require('multer');
+// const express=require('express');
+// const mongoose=require('./db/mongoose1');
+// const userRouter=require('./routers/user');
+// const taskRouter=require('./routers/task');
+// const auth=require('./middleware/auth');
+// const app=express();
+// const multer=require('multer');
+
+const app=require('./app');
 
 const port=process.env.PORT;
+
+
+app.listen(port,()=>{
+    console.log(`Server is up on port  ${port}`);
+});
+
+
+
+
+
 
 //Express Middleware::::
 
@@ -40,7 +52,7 @@ const port=process.env.PORT;
 
 
 //It automatically parse the income json into object.
- app.use(express.json());
+ 
 
 //  const router=new express.Router();
 
@@ -50,16 +62,7 @@ const port=process.env.PORT;
 
 //  app.use(router);
 
- app.use(userRouter);
-
- app.use(taskRouter);
  
-
-
-app.listen(port,()=>{
-    console.log(`Server is up on port  ${port}`);
-});
-
 
 
 // Bcrypt:
@@ -85,16 +88,18 @@ app.listen(port,()=>{
 //myFunction();
 
 //JWT tokens::
-const jwt=require('jsonwebtoken');
 
-const myFunction=async()=>
-{
-    // const token=await jwt.sign({_id:'123abc@'},'thisismynewcourse',{expiresIn:'7 days'});
-    // console.log(token);
+// const jwt=require('jsonwebtoken');
 
-    // const data=await jwt.verify(token,'thisismynewcourse');
-    // console.log(data);
-}
+// const myFunction=async()=>
+// {
+//     const token=await jwt.sign({_id:'123abc@'},'thisismynewcourse',{expiresIn:'7 days'});
+//     console.log(token);
+
+//     const data=await jwt.verify(token,'thisismynewcourse');
+//     console.log(data);
+// }
+
 //myFunction();
 
 //toJSON
@@ -119,8 +124,8 @@ const myFunction=async()=>
 // console.log(JSON.stringify(pet));
 
 
-const Task=require('./models/task');
-const User=require('./models/user');
+// const Task=require('./models/task');
+// const User=require('./models/user');
 
 //In MongoDB, Population is the process of replacing the specified path in the document of 
 //one collection with the actual document from the other collection.
@@ -131,17 +136,17 @@ const User=require('./models/user');
 
 // //populate() function in mongoose is used for populating the data inside the reference. 
 
-const main=async ()=>{
+// const main=async ()=>{
 
-    // const task=await Task.findById('611e7a18f6b9c82f7fc85363');
-    // await task.populate('owner').execPopulate();
-    // // console.log(task.owner);
+//     // const task=await Task.findById('611e7a18f6b9c82f7fc85363');
+//     // await task.populate('owner').execPopulate();
+//     // // console.log(task.owner);
 
-    // const user=await User.findById('611e77528d18ad2a1289bd74');
-    // await user.populate('tasks').execPopulate();
-    // console.log(user.tasks);
+//     // const user=await User.findById('611e77528d18ad2a1289bd74');
+//     // await user.populate('tasks').execPopulate();
+//     // console.log(user.tasks);
 
-}
+// }
 
 // main();
 
